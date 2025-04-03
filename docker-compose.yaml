@@ -9,5 +9,15 @@ services:
     ports:
       - "5432:5432"
 
+  whatwhen_app:
+    build: .
+    container_name: whatwhen_app
+    depends_on:
+      - whatwhen_db
+    env_file:
+      - app.env
+    stdin_open: true
+    tty: true
+
 volumes:
   db-data:
