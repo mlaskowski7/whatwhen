@@ -1,0 +1,13 @@
+services:
+  whatwhen_db:
+    image: postgres:15
+    container_name: whatwhen_db
+    env_file:
+      - db.env
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+volumes:
+  db-data:
