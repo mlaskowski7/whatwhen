@@ -13,4 +13,7 @@ func Execute() error {
 
 func init() {
 	cli.AddCommand(viewCmd)
+
+	AddCreateCmdFlags()
+	cli.AddCommand(createCmd)
 }

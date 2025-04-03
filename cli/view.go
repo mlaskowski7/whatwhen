@@ -7,8 +7,8 @@ import (
 )
 
 var viewCmd = &cobra.Command{
-	Use:   "viewAll",
-	Short: "View all tasks",
+	Use:   "whats",
+	Short: "View all whats",
 	Run: func(cmd *cobra.Command, args []string) {
 		tasks, err := bll.GetAllTasks()
 		if err != nil {
