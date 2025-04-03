@@ -1,8 +1,12 @@
 package models
 
-import "time"
+import (
+	"fmt"
+	"time"
+)
 
 // Task TODO: add child tasks
+// Task TODO: add priority with an enum
 type Task struct {
 	Id       uint `gorm:"primary_key"`
 	Title    string
@@ -18,4 +22,15 @@ func NewTask(title string, desc string, deadline time.Time, finished bool) *Task
 		Deadline: deadline,
 		Finished: finished,
 	}
+}
+
+func (t Task) String() string {
+	return fmt.Sprintf(
+		"[#%d] %s\n  Desc: %s\n  Deadline: %s\n  Finished: %t\n",
+		t.Id,
+		t.Title,
+		t.Desc,
+		t.Deadline.Format("2006-01-02 15:04"),
+		t.Finished,
+	)
 }
