@@ -1,4 +1,4 @@
-package whatwhen
+package main
 
 import (
 	"fmt"

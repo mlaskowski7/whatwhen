@@ -1,8 +1,10 @@
-FROM golang:1.21-alpine
+FROM golang:1.24-alpine
 
 WORKDIR /app
 COPY . .
 
-RUN go build -o taskcli .
+RUN go build -o whatwhen .
 
-CMD ["./taskcli"]
+RUN chmod +x whatwhen
+
+ENTRYPOINT ["./whatwhen"]
